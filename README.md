@@ -12,6 +12,41 @@
 for Windows. WinMerge can compare files and folders, presenting differences
 in a visual format that is easy to understand and manipulate.
 
+File Comparison:
+![image](https://github.com/user-attachments/assets/d094ed0a-3e42-43ae-9e34-864b2bb6f999)
+File compare window is basically two files opened to editor into two horizontal panes. Editing allows user to easily do small changes without need to open files to other editor or development environment.
+
+3-way File Comparison:
+![image](https://github.com/user-attachments/assets/6f15aa5a-e076-42cc-bb8e-f9fe88029944)
+The 3-way file compare even allows comparing and editing three files at the same time.
+
+Folder Comparison Results:
+![image](https://github.com/user-attachments/assets/13cb6c1f-9514-4c72-b85a-2ec8cc9bbc08)
+Folder compare shows all files and subfolders found from compared folders as list. Folder compare allows synchronising folders by copying and deleting files and subfolders. Folder compare view can be versatile customised.
+
+Folder Compare Tree View:
+![image](https://github.com/user-attachments/assets/1493d9de-e466-4d92-ba1e-60383b9fc645)
+In the tree view, folders are expandable and collapsible, containing files and subfolders. This is useful for an easier navigation in deeply nested directory structures. The tree view is available only in recursive compares.
+
+Image Comparison:
+![image](https://github.com/user-attachments/assets/a08d208e-34b1-4eb3-b8d3-f61a3b6120dd)
+WinMerge can compare images and highlight the differences in several ways.
+
+Table Comparison:
+![image](https://github.com/user-attachments/assets/6c1693e9-0271-4f3d-9cb6-844b6303fd87)
+Table compare shows the contents of CSV/TSV files in table format.
+
+Binary Comparison:
+![image](https://github.com/user-attachments/assets/b4a3ca14-0c16-4c8b-a201-ffc2ef98d636)
+WinMerge can detect whether files are in text or binary format. When you launch a file compare operation on binary files, WinMerge opens each file in the binary file editor.
+
+Open-dialog:
+
+![image](https://github.com/user-attachments/assets/97c1c24c-e7b9-4fa3-80df-4feb7e4ff5e0)
+
+WinMerge allows selecting/opening paths in several ways. Using the Open-dialog is just one of them.
+
+
 ## Source Code
 WinMerge is Open Source software under the [GNU General Public License](https://www.gnu.org/licenses/gpl-2.0.html)
 
