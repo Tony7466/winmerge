@@ -1,11 +1,11 @@
-# WinMerge 2.16.45.0 Beta Release Notes
+# WinMerge 2.16.45.1 Beta Release Notes
 
 - [About This Release](#about-this-release)
 - [What Is New in 2.16.45.1 beta?](#what-is-new-in-216451-beta)
 - [What Is New in 2.16.45.0 beta?](#what-is-new-in-216450-beta)
 - [Known issues](#known-issues)
 
-November 2024
+December 2024
 
 ## About This Release
 
@@ -45,7 +45,10 @@ Please submit bug reports to our bug-tracker.
 
 - Translation updates:
   - Brazilian (PR #2585)
+  - Chinese Simplified (PR #2588) 
   - Hungarian (PR #2586)
+  - Italian (PR #2587)
+  - Lithuanian (PR #2591)
   - Japanese
   - Korean (PR #2558,#2559)
 
