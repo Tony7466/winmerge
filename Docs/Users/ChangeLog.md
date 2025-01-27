@@ -5,14 +5,28 @@
 ### General
 
 - BugFix: ALT-F4 opens Tools menu instead of exit from WinMerge (#2592)
+
+- BugFix: Fixes an issue causing a momentary drawing shift when launching
+    WinMerge with Windows animation effects enabled and the window maximized.
+
 ### Folder compare
 
 - BugFix: Compare - Text files different and case also different
     - bug when delete and copy (#2599)
 
+- Add a Prompt to Copy Only Differences in Folder Comparison (PR #2622,#198,#1168,#1350,#1995)
+
 ### Plugins
 
+- BugFix: Fixes an issue where the Plugins → Prediffer menu is not displayed
+    correctly since version 2.16.43.
+
+- BugFix: Fixed an issue in the CompareMSPowerPointFiles.sct plugin that
+    caused error 0x80048010 when comparing PowerPoint files
+
 - Enable per-file plugin application with file number specification (PR #2598)
+
+- Some Plugins window fixes (PR #2621)
 
 ### Manual
 
@@ -21,15 +35,16 @@
 ### Translations
 
 - Translation updates:
-  - Brazilian (PR #2601) 
-  - Chinese Simplified (PR #2603) 
+  - Brazilian (PR #2601,#2623)
+  - Chinese Simplified (PR #2603,#2624) 
   - French (PR #2595,#2612)
   - Hungarian (PR #2602)
-  - Italian (PR #2610)
+  - Italian (PR #2610,#2627)
   - Japanese
-  - Korean (PR #2611)
-  - Lithuanian (PR #2604) 
-  - Russian (PR #2593,#2609)
+  - Korean (PR #2611,#2630)
+  - Lithuanian (PR #2604,#2628)
+  - Portuguese (PR #2614)
+  - Russian (PR #2593,#2609,#2629)
 
 ## WinMerge 2.16.45.1 - 2024-12-27
 

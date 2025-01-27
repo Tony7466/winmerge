@@ -2075,6 +2075,9 @@ msgstr "Plugins"
 msgid "&Enable plugins"
 msgstr "&Ativar plugins"
 
+msgid "Plugin &type:"
+msgstr "&Tipo de plugin:"
+
 msgid "File filters:"
 msgstr "Filtros de ficheiro:"
 
@@ -2205,9 +2208,6 @@ msgstr "Visualização &Hex"
 
 msgid "Edit Plugin"
 msgstr "Editar plugin"
-
-msgid "Plugin &type:"
-msgstr "&Tipo de plugin:"
 
 msgid "&Category:"
 msgstr "&Categoria:"
@@ -3000,6 +3000,9 @@ msgstr "Tudo para... (%1)"
 #, c-format
 msgid "Differences to... (%1)"
 msgstr "Diferenças para... (%1)"
+
+msgid "Some selected items are identical or skipped.\nDo you want to copy only the items with differences?"
+msgstr ""
 
 #, c-format
 msgid "Left (%1)"

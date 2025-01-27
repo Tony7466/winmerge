@@ -2498,6 +2498,9 @@ msgstr "Доповнення"
 msgid "&Enable plugins"
 msgstr "&Ввімкнути доповнення"
 
+msgid "Plugin &type:"
+msgstr ""
+
 msgid "File filters:"
 msgstr ""
 
@@ -2644,9 +2647,6 @@ msgid "&Hex View"
 msgstr ""
 
 msgid "Edit Plugin"
-msgstr ""
-
-msgid "Plugin &type:"
 msgstr ""
 
 msgid "&Category:"
@@ -3460,6 +3460,9 @@ msgstr ""
 
 #, c-format
 msgid "Differences to... (%1)"
+msgstr ""
+
+msgid "Some selected items are identical or skipped.\nDo you want to copy only the items with differences?"
 msgstr ""
 
 #, c-format

@@ -2066,6 +2066,9 @@ msgstr "Rozšírenia"
 msgid "&Enable plugins"
 msgstr "&Povoliť rozšírenia"
 
+msgid "Plugin &type:"
+msgstr ""
+
 msgid "File filters:"
 msgstr "Filtre súborov:"
 
@@ -2195,9 +2198,6 @@ msgid "&Hex View"
 msgstr "Zobraziť &hexadecimálne"
 
 msgid "Edit Plugin"
-msgstr ""
-
-msgid "Plugin &type:"
 msgstr ""
 
 msgid "&Category:"
@@ -2973,6 +2973,9 @@ msgstr "Všetky do... (%1)"
 #, c-format
 msgid "Differences to... (%1)"
 msgstr "Rozdiely do... (%1)"
+
+msgid "Some selected items are identical or skipped.\nDo you want to copy only the items with differences?"
+msgstr ""
 
 #, c-format
 msgid "Left (%1)"

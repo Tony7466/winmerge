@@ -2531,6 +2531,9 @@ msgstr "外掛程式"
 msgid "&Enable plugins"
 msgstr "啟用外掛程式 (&E)"
 
+msgid "Plugin &type:"
+msgstr ""
+
 msgid "File filters:"
 msgstr "檔案篩選器："
 
@@ -2677,9 +2680,6 @@ msgid "&Hex View"
 msgstr "二進制顯示 (&H)"
 
 msgid "Edit Plugin"
-msgstr ""
-
-msgid "Plugin &type:"
 msgstr ""
 
 msgid "&Category:"
@@ -3537,6 +3537,9 @@ msgstr "全部到... (%1)"
 #, c-format
 msgid "Differences to... (%1)"
 msgstr "差異到... (%1)"
+
+msgid "Some selected items are identical or skipped.\nDo you want to copy only the items with differences?"
+msgstr ""
 
 #, c-format
 msgid "Left (%1)"

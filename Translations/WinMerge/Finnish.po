@@ -2067,6 +2067,9 @@ msgstr "Lisäosat"
 msgid "&Enable plugins"
 msgstr "Ota laajennukset käyttöön"
 
+msgid "Plugin &type:"
+msgstr ""
+
 msgid "File filters:"
 msgstr "Tiedostosuodattimet:"
 
@@ -2202,9 +2205,6 @@ msgid "&Hex View"
 msgstr "&Hexanäkymä"
 
 msgid "Edit Plugin"
-msgstr ""
-
-msgid "Plugin &type:"
 msgstr ""
 
 msgid "&Category:"
@@ -3000,6 +3000,9 @@ msgstr "Kaikki... (%1)"
 #, c-format
 msgid "Differences to... (%1)"
 msgstr "Erot... (%1)"
+
+msgid "Some selected items are identical or skipped.\nDo you want to copy only the items with differences?"
+msgstr ""
 
 #, c-format
 msgid "Left (%1)"

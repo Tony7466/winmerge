@@ -2059,6 +2059,9 @@ msgstr "Wtyczki"
 msgid "&Enable plugins"
 msgstr "Włącz wtyczki"
 
+msgid "Plugin &type:"
+msgstr "Typ wtyczki:"
+
 msgid "File filters:"
 msgstr "Filtry pliku:"
 
@@ -2189,9 +2192,6 @@ msgstr "Widok szesnastkowy"
 
 msgid "Edit Plugin"
 msgstr ""
-
-msgid "Plugin &type:"
-msgstr "Typ wtyczki:"
 
 msgid "&Category:"
 msgstr "Kategoria:"
@@ -2766,6 +2766,9 @@ msgstr "Wszystkie do... (%1)"
 #, c-format
 msgid "Differences to... (%1)"
 msgstr "Różnice do... (%1)"
+
+msgid "Some selected items are identical or skipped.\nDo you want to copy only the items with differences?"
+msgstr ""
 
 #, c-format
 msgid "Left (%1)"

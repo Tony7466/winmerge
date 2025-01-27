@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WinMerge\n"
 "Report-Msgid-Bugs-To: https://bugs.winmerge.org/\n"
-"POT-Creation-Date: 2025-01-01 15:10+0000\n"
-"PO-Revision-Date: 2025-01-06 07:55+0200\n"
+"POT-Creation-Date: 2025-01-20 20:14+0000\n"
+"PO-Revision-Date: 2025-01-24 07:35+0200\n"
 "Last-Translator: Tichij <tichij@mail.com>\n"
 "Language-Team: Lithuanian <winmerge-translate@lists.sourceforge.net>\n"
 "Language: lt\n"
@@ -2058,6 +2058,9 @@ msgstr "Papildiniai"
 msgid "&Enable plugins"
 msgstr "Įjungti &papildinius"
 
+msgid "Plugin &type:"
+msgstr "Papildinio &tipas:"
+
 msgid "File filters:"
 msgstr "Failų filtrai:"
 
@@ -2188,9 +2191,6 @@ msgstr "Žiūrėti &Hex režimu"
 
 msgid "Edit Plugin"
 msgstr "Redaguoti papildinį"
-
-msgid "Plugin &type:"
-msgstr "Papildinio &tipas:"
 
 msgid "&Category:"
 msgstr "&Kategorija:"
@@ -2765,6 +2765,9 @@ msgstr "Viską į... (%1)"
 #, c-format
 msgid "Differences to... (%1)"
 msgstr "Skirtumus į... (%1)"
+
+msgid "Some selected items are identical or skipped.\nDo you want to copy only the items with differences?"
+msgstr "Kai kurie pasirinkti elementai yra identiški arba praleisti.\nAr norite kopijuoti tik besiskiriančius elementus?"
 
 #, c-format
 msgid "Left (%1)"

@@ -2522,6 +2522,9 @@ msgstr "Bővítmények"
 msgid "&Enable plugins"
 msgstr "Bővítmények bekapcsolása"
 
+msgid "Plugin &type:"
+msgstr "Bővítmény &típusa:"
+
 msgid "File filters:"
 msgstr "Fájlszűrők:"
 
@@ -2669,9 +2672,6 @@ msgstr "Hexadecimális nézet"
 
 msgid "Edit Plugin"
 msgstr "Bővítmény szerkesztése"
-
-msgid "Plugin &type:"
-msgstr "Bővítmény &típusa:"
 
 msgid "&Category:"
 msgstr "&Kategória:"
@@ -3523,6 +3523,9 @@ msgstr "Az összesből a...(%1)"
 #, c-format
 msgid "Differences to... (%1)"
 msgstr "Különbségek ehhez...(%1)"
+
+msgid "Some selected items are identical or skipped.\nDo you want to copy only the items with differences?"
+msgstr "Néhány kiválasztott elem azonos vagy kimaradt.\nCsak a különbségeket tartalmazó elemeket szeretné másolni?"
 
 #, c-format
 msgid "Left (%1)"
