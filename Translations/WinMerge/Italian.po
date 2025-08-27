@@ -10,17 +10,17 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: WinMerge - Italian - 25.07.2025\n"
+"Project-Id-Version: WinMerge - Italian - 25.08.2025\n"
 "Report-Msgid-Bugs-To: https://github.com/WinMerge/winmerge/issues/\n"
 "POT-Creation-Date: 2025-04-17 09:05+0000\n"
-"PO-Revision-Date: 2025-07-26 12:23+0200\n"
-"Last-Translator: bovirus <bovirus@gmail.comn>\n"
+"PO-Revision-Date: 2025-08-25 09:18+0200\n"
+"Last-Translator: bovirus <bovirus@gmail.com>\n"
 "Language-Team: bovirus (bovirus@gmail.com)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.7\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. LANGUAGE, SUBLANGUAGE
@@ -1791,13 +1791,22 @@ msgid "Colors"
 msgstr "Colori"
 
 msgid "Color &mode:"
-msgstr ""
+msgstr "&Modo colore:"
 
 msgid "&Light mode scheme:"
-msgstr ""
+msgstr "Modo schema c&hiaro:"
 
 msgid "&Dark mode scheme:"
-msgstr ""
+msgstr "Mo&do schema scuro:"
+
+msgid "Your custom schemes"
+msgstr "Schemi personalizzati"
+
+msgid "&Save current scheme..."
+msgstr "&Salva schema attuale..."
+
+msgid "Delete &current scheme..."
+msgstr "Elimina s&chema attuale..."
 
 msgid "Background"
 msgstr "Sfondo"
@@ -2650,40 +2659,40 @@ msgid "Script &body:"
 msgstr "Corpo &script:"
 
 msgid "Font"
-msgstr ""
+msgstr "Font"
 
 msgid "&Font:"
-msgstr ""
+msgstr "&Font:"
 
 msgid "Font st&yle:"
-msgstr ""
+msgstr "St&ile font:"
 
 msgid "&Size:"
-msgstr ""
+msgstr "&Dimensione:"
 
 msgid "Effects"
-msgstr ""
+msgstr "Effetti"
 
 msgid "Stri&keout"
-msgstr ""
+msgstr "Ribatt&uto"
 
 msgid "&Underline"
-msgstr ""
+msgstr "&Sottolineato"
 
 msgid "&Color:"
-msgstr ""
+msgstr "&Colore:"
 
 msgid "Sample"
-msgstr ""
+msgstr "Esempio"
 
 msgid "AaBbYyZz"
-msgstr ""
+msgstr "AaBbYyZz"
 
 msgid "Sc&ript:"
-msgstr ""
+msgstr "Sc&ript:"
 
 msgid "<A>Show more fonts</A>"
-msgstr ""
+msgstr "<A>Visualizza altre font</A>"
 
 msgid "EXT"
 msgstr "EST"
@@ -5076,13 +5085,13 @@ msgid "Not Contains (regex)"
 msgstr "Non contiene (regex)"
 
 msgid "Light"
-msgstr ""
+msgstr "Chiaro"
 
 msgid "Dark"
-msgstr ""
+msgstr "Scuro"
 
 msgid "Follow system"
-msgstr ""
+msgstr "Sistema"
 
 msgid "Prettification"
 msgstr "Abbellimento"

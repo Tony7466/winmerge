@@ -41,16 +41,8 @@ static HRESULT NTAPI SE(BOOL f)
 	return hr;
 }
 
-static UINT64 NTAPI GetLastWriteTime(HANDLE h)
-{
-	UINT64 ft;
-	return ::GetFileTime(h, 0, 0, reinterpret_cast<FILETIME *>(&ft)) ? ft : 0;
-}
 
-static void NTAPI SetLastWriteTime(HANDLE h, UINT64 ft)
-{
-	::SetFileTime(h, 0, 0, reinterpret_cast<FILETIME *>(&ft));
-}
+
 
 /////////////////////////////////////////////////////////////////////////////
 // CHexMergeView
@@ -147,10 +139,8 @@ int CHexMergeView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	if (m_pif == nullptr || m_pif->get_interface_version() < HEKSEDIT_INTERFACE_VERSION)
 		return -1;
 	m_pif->set_theme_callback([](HWND hwnd, IHexEditorWindow::WINDOW_TYPE windowType) {
-#if defined(USE_DARKMODELIB)
 			if (windowType == IHexEditorWindow::WINDOW_DIALOG)
 				DarkMode::setDarkWndSafe(hwnd, true);
-#endif
 		});
 	return 0;
 }

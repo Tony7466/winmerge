@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: WinMerge\n"
 "Report-Msgid-Bugs-To: https://github.com/WinMerge/winmerge/issues/\n"
 "POT-Creation-Date: 2023-04-15 08:40+0000\n"
-"PO-Revision-Date: 2025-07-28 00:00+0000\n"
+"PO-Revision-Date: 2025-08-26 00:00+0000\n"
 "Last-Translator: Dmitriy Rublev\n"
 "Language-Team: Russian <winmerge-translate@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -1785,13 +1785,22 @@ msgid "Colors"
 msgstr "Цвета"
 
 msgid "Color &mode:"
-msgstr ""
+msgstr "Цветовой режим:"
 
 msgid "&Light mode scheme:"
-msgstr ""
+msgstr "Светлая схема:"
 
 msgid "&Dark mode scheme:"
-msgstr ""
+msgstr "Тёмная схема:"
+
+msgid "Your custom schemes"
+msgstr "Собственные схемы"
+
+msgid "&Save current scheme..."
+msgstr "Сохранить текущую схему..."
+
+msgid "Delete &current scheme..."
+msgstr "Удалить текущую схему..."
 
 msgid "Background"
 msgstr "Фон"
@@ -2630,40 +2639,40 @@ msgid "Script &body:"
 msgstr "Тело скрипта:"
 
 msgid "Font"
-msgstr ""
+msgstr "Шрифт"
 
 msgid "&Font:"
-msgstr ""
+msgstr "Шрифт:"
 
 msgid "Font st&yle:"
-msgstr ""
+msgstr "Стиль шрифта:"
 
 msgid "&Size:"
-msgstr ""
+msgstr "Размер:"
 
 msgid "Effects"
-msgstr ""
+msgstr "Эффекты"
 
 msgid "Stri&keout"
-msgstr ""
+msgstr "Зачёркнутый"
 
 msgid "&Underline"
-msgstr ""
+msgstr "Подчёркнутый"
 
 msgid "&Color:"
-msgstr ""
+msgstr "Цвет:"
 
 msgid "Sample"
-msgstr ""
+msgstr "Образец"
 
 msgid "AaBbYyZz"
-msgstr ""
+msgstr "АаБбЮюЯя"
 
 msgid "Sc&ript:"
-msgstr ""
+msgstr "Скрипт:"
 
 msgid "<A>Show more fonts</A>"
-msgstr ""
+msgstr "<A>Показать больше шрифтов</A>"
 
 msgid "EXT"
 msgstr "EXT"
@@ -4572,13 +4581,13 @@ msgid "Not Contains (regex)"
 msgstr "Не содержит (regex)"
 
 msgid "Light"
-msgstr ""
+msgstr "Светлый"
 
 msgid "Dark"
-msgstr ""
+msgstr "Тёмный"
 
 msgid "Follow system"
-msgstr ""
+msgstr "Системный"
 
 msgid "Prettification"
 msgstr "Приукрашивание"

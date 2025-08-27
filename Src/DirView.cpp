@@ -479,7 +479,6 @@ void CDirView::OnInitialUpdate()
 	// Also enable infotips.
 	DWORD exstyle = LVS_EX_FULLROWSELECT | LVS_EX_HEADERDRAGDROP | LVS_EX_INFOTIP | LVS_EX_DOUBLEBUFFER;
 	m_pList->SetExtendedStyle(exstyle);
-#if defined(USE_DARKMODELIB)
 	HWND hList = GetSafeHwnd();
 	if (hList != nullptr)
 	{
@@ -487,7 +486,6 @@ void CDirView::OnInitialUpdate()
 		DarkMode::setDarkTooltips(hList, DarkMode::ToolTipsType::listview);
 		DarkMode::setDarkThemeExperimental(hList);
 	}
-#endif
 }
 
 BOOL CDirView::PreCreateWindow(CREATESTRUCT& cs)
@@ -698,21 +696,6 @@ void CDirView::OnContextMenu(CWnd*, CPoint point)
 	}
 
 	ListContextMenu(point, i);
-}
-
-/**
- * @brief Format context menu string and disable item if it cannot be applied.
- */
-static void NTAPI FormatContextMenu(BCMenu *pPopup, UINT uIDItem, int n1, int n2 = 0, int n3 = 0)
-{
-	CString s1, s2;
-	pPopup->GetMenuText(uIDItem, s1, MF_BYCOMMAND);
-	s2.FormatMessage(s1, NumToStr(n1).c_str(), NumToStr(n2).c_str(), NumToStr(n3).c_str());
-	pPopup->SetMenuText(uIDItem, s2, MF_BYCOMMAND);
-	if (n1 == 0)
-	{
-		pPopup->EnableMenuItem(uIDItem, MF_GRAYED);
-	}
 }
 
 /**
@@ -2897,7 +2880,6 @@ void CDirView::OnTimer(UINT_PTR nIDEvent)
  */
 void CDirView::OnSettingChange(UINT uFlags, LPCTSTR lpszSection)
 {
-#if defined(USE_DARKMODELIB)
 	if (WinMergeDarkMode::IsImmersiveColorSet(lpszSection))
 	{
 		HWND hList = GetSafeHwnd();
@@ -2908,7 +2890,6 @@ void CDirView::OnSettingChange(UINT uFlags, LPCTSTR lpszSection)
 			DarkMode::setDarkThemeExperimental(hList);
 		}
 	}
-#endif
 	__super::OnSettingChange(uFlags, lpszSection);
 }
 
@@ -4906,7 +4887,6 @@ void CDirView::OnEditColumns()
 			m_pColItems->SaveColumnOrders();
 			GetDiffContext().m_pPropertySystem.reset(new PropertySystem(m_pColItems->GetAdditionalPropertyNames()));
 			GetDiffContext().ClearAllAdditionalProperties();
-			auto* pDoc = GetDocument();
 			ReloadColumns();
 		}
 	} 

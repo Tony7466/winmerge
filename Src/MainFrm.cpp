@@ -14,7 +14,9 @@
 #include "MainFrm.h"
 #include <vector>
 #include <afxinet.h>
+#if !defined(__cppcheck__)
 #include <boost/range/mfc.hpp>
+#endif
 #include "Constants.h"
 #include "Merge.h"
 #include "FileFilterHelper.h"
@@ -50,6 +52,7 @@
 #include "ConfigLog.h"
 #include "7zCommon.h"
 #include "Merge7zFormatMergePluginImpl.h"
+#include "FiltersPropertySheet.h"
 #include "FileFiltersDlg.h"
 #include "OptionsMgr.h"
 #include "OptionsDef.h"
@@ -441,13 +444,8 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	if (IsWin10_OrGreater())
 	{
 		m_bTabsOnTitleBar = GetOptionsMgr()->GetBool(OPT_TABBAR_ON_TITLEBAR);
-#if defined(USE_DARKMODELIB)
-		HWND hSelf = GetSafeHwnd();
-		if (hSelf != nullptr)
-		{
+		if (HWND hSelf = GetSafeHwnd())
 			DarkMode::setDarkWndNotifySafe(hSelf, true);
-		}
-#endif
 	}
 
 	m_wndTabBar.Update(m_bTabsOnTitleBar.value_or(false), false);
@@ -1188,10 +1186,8 @@ void CMainFrame::OnHelpGnulicense()
  */
 void CMainFrame::OnOptions() 
 {
-#if defined(USE_DARKMODELIB)
 	const DarkMode::DarkModeType dmType =
 		WinMergeDarkMode::GetDarkModeType(GetOptionsMgr()->GetInt(OPT_COLOR_MODE));
-#endif
 	const bool sysColorHookEnabled = GetOptionsMgr()->GetBool(OPT_SYSCOLOR_HOOK_ENABLED);
 	const String sysColorsSerialized = GetOptionsMgr()->GetString(OPT_SYSCOLOR_HOOK_COLORS);
 	// Using singleton shared syntax colors
@@ -1242,22 +1238,16 @@ void CMainFrame::OnOptions()
 		for (auto pImgMergeFrame : GetAllImgMergeFrames())
 			pImgMergeFrame->RefreshOptions();
 
-#if defined(USE_DARKMODELIB)
 		const DarkMode::DarkModeType dmTypeNew =
 			WinMergeDarkMode::GetDarkModeType(GetOptionsMgr()->GetInt(OPT_COLOR_MODE));
 		const bool colorModeChanged = dmType != dmTypeNew;
-#else
-		const bool colorModeChanged = false;
-#endif
 		if (sysColorHookEnabled != GetOptionsMgr()->GetBool(OPT_SYSCOLOR_HOOK_ENABLED) ||
 		    sysColorsSerialized != GetOptionsMgr()->GetString(OPT_SYSCOLOR_HOOK_COLORS) ||
 			colorModeChanged)
 		{
-#if defined(USE_DARKMODELIB)
 			DarkMode::setDarkModeConfig(static_cast<UINT>(dmTypeNew));
 			DarkMode::setDefaultColors(true);
 			DarkMode::setDarkTitleBarEx(m_hWnd, true);
-#endif
 			theApp.ReloadCustomSysColors();
 			AfxGetMainWnd()->SendMessage(WM_SYSCOLORCHANGE);
 			AfxGetMainWnd()->SendMessage(WM_SETTINGCHANGE, 0, reinterpret_cast<LPARAM>(_T("ImmersiveColorSet")));
@@ -2114,7 +2104,7 @@ bool CMainFrame::DoFileNew(UINT nID, int nPanes,
 void CMainFrame::OnToolsFilters()
 {
 	String title = _("Filters");
-	CPropertySheet sht(title.c_str());
+	CFiltersPropertySheet sht(title.c_str());
 	LineFiltersDlg lineFiltersDlg;
 	SubstitutionFiltersDlg substitutionFiltersDlg;
 	FileFiltersDlg fileFiltersDlg;
@@ -2709,13 +2699,8 @@ BOOL CMainFrame::CreateToolbar()
 	}
 
 	m_wndReBar.LoadStateFromString(GetOptionsMgr()->GetString(OPT_REBAR_STATE).c_str());
-#if defined(USE_DARKMODELIB)
-	HWND hTip = m_wndToolBar.GetToolBarCtrl().GetToolTips()->GetSafeHwnd();
-	if (hTip != nullptr)
-	{
+	if (HWND hTip = m_wndToolBar.GetToolBarCtrl().GetToolTips()->GetSafeHwnd())
 		DarkMode::setDarkTooltips(hTip);
-	}
-#endif
 	return TRUE;
 }
 
@@ -3945,7 +3930,6 @@ void CMainFrame::OnSysCommand(UINT nID, LPARAM lParam)
  */
 void CMainFrame::OnSettingChange(UINT uFlags, LPCTSTR lpszSection)
 {
-#if defined(USE_DARKMODELIB)
 	if (WinMergeDarkMode::IsImmersiveColorSet(lpszSection))
 	{
 		const DarkMode::DarkModeType dmTypeNew =
@@ -3985,6 +3969,5 @@ void CMainFrame::OnSettingChange(UINT uFlags, LPCTSTR lpszSection)
 			RedrawWindow(nullptr, nullptr, RDW_INVALIDATE | RDW_UPDATENOW | RDW_ERASE | RDW_ALLCHILDREN);
 		}
 	}
-#endif
 	__super::OnSettingChange(uFlags, lpszSection);
 }

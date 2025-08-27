@@ -106,7 +106,8 @@ BOOL CAboutDlg::Impl::OnInitDialog()
 {
 	CTrDialog::OnInitDialog();
 
-	if (!m_image.Load(paths::ConcatPath(env::GetProgPath(), _T("Resources\\splash.png")).c_str()))
+	HRESULT hr = m_image.Load(paths::ConcatPath(env::GetProgPath(), _T("Resources\\splash.png")).c_str());
+	if (FAILED(hr))
 	{
 		// FIXME: LoadImageFromResource() seems to fail when running on Wine 5.0.
 	}
@@ -121,25 +122,18 @@ BOOL CAboutDlg::Impl::OnInitDialog()
 	SetDlgItemText(IDC_WWW, link);
 
 	UpdateData(FALSE);
-#if defined(USE_DARKMODELIB)
+
 	if (DarkMode::isExperimentalActive())
-	{
 		WinMergeDarkMode::InvertLightness(m_image);
-	}
 
-	HWND hLink = GetDlgItem(IDC_WWW)->GetSafeHwnd();
-	if (hLink != nullptr)
-	{
+	if (HWND hLink = GetDlgItem(IDC_WWW)->GetSafeHwnd())
 		DarkMode::enableSysLinkCtrlCtlColor(hLink);
-	}
 
-	HWND hSelf = m_hWnd;
-	if (hSelf != nullptr)
+	if (HWND hSelf = m_hWnd)
 	{
 		DarkMode::removeWindowEraseBgSubclass(hSelf);
 		WinMergeDarkMode::SetAsciiArtSubclass(hSelf);
 	}
-#endif
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -176,11 +170,7 @@ BOOL CAboutDlg::Impl::OnEraseBkgnd(CDC* pDC)
 	GetDlgItem(IDC_COMPANY)->GetWindowRect(&rcCompany);
 	ScreenToClient(&rcCompany);
 	rc.top = rcCompany.bottom;
-#if defined(USE_DARKMODELIB)
 	pDC->FillSolidRect(&rc, DarkMode::isEnabled() ? DarkMode::getDlgBackgroundColor() : GetSysColor(COLOR_BTNFACE));
-#else
-	pDC->FillSolidRect(&rc, GetSysColor(COLOR_BTNFACE));
-#endif
 	rc.bottom = rc.top;
 	rc.top = 0;
 	m_image.Draw(pDC->m_hDC, rc, Gdiplus::InterpolationModeBicubic);

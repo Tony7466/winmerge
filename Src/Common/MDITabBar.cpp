@@ -71,19 +71,12 @@ BOOL CMyTabCtrl::Create(CMDIFrameWnd* pMainFrame, CWnd* pParent)
 	m_pMainFrame = pMainFrame;
 	m_tooltips.Create(m_pMainFrame, TTS_NOPREFIX);
 	m_tooltips.AddTool(this, _T(""));
-#if defined(USE_DARKMODELIB)
-	HWND hSelf = GetSafeHwnd();
-	if (hSelf != nullptr)
-	{
+	if (HWND hSelf = GetSafeHwnd())
 		DarkMode::setTabCtrlUpDownSubclass(hSelf);
-	}
 
-	HWND hTip = m_tooltips.GetSafeHwnd();
-	if (hTip != nullptr)
-	{
+	if (HWND hTip = m_tooltips.GetSafeHwnd())
 		DarkMode::setDarkTooltips(hTip);
-	}
-#endif
+
 	return TRUE;
 }
 

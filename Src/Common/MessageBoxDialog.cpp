@@ -512,20 +512,15 @@ BOOL CMessageBoxDialog::OnInitDialog ( )
 	CreateMessageControl();
 	CreateCheckboxControl();
 	CreateButtonControls();
-#if defined(USE_DARKMODELIB)
 	if (m_hWnd != nullptr)
 	{
 		DarkMode::setDarkWndSafe(m_hWnd, false);
 		DarkMode::setWindowEraseBgSubclass(m_hWnd);
-		HWND hTip = m_tooltips.GetSafeHwnd();
-		if (hTip != nullptr)
-		{
+		if (HWND hTip = m_tooltips.GetSafeHwnd())
 			DarkMode::setDarkTooltips(hTip);
-		}
 	}
 
 	if (!DarkMode::isExperimentalActive())
-#endif
 	{
 		const COLORREF clrWindow = GetSysColor(COLOR_WINDOW);
 		if ((clrWindow & 0xff) + ((clrWindow >> 8) & 0xff) + (clrWindow > 16) < 0x80 * 3)

@@ -148,6 +148,7 @@ COpenView::COpenView()
 	, m_bIgnoreNumbers(false)
 	, m_bIgnoreCodepage(false)
 	, m_bFilterCommentsLines(false)
+	, m_bIgnoreMissingTrailingEol(false)
 	, m_nCompareMethod(0)
 	, m_hTheme(nullptr)
 {
@@ -213,19 +214,15 @@ void COpenView::OnInitialUpdate()
 		// FIXME: LoadImageFromResource() seems to fail when running on Wine 5.0.
 		m_image.Create(1, 1, 24, 0);
 	}
-#if defined(USE_DARKMODELIB)
-	HWND hSelf = GetSafeHwnd();
-	if (hSelf != nullptr)
+	if (HWND hSelf = GetSafeHwnd())
 	{
 		DarkMode::setWindowCtlColorSubclass(hSelf);
 		DarkMode::setChildCtrlsSubclassAndTheme(hSelf);
 	}
 
 	if (DarkMode::isExperimentalActive())
-	{
 		WinMergeDarkMode::InvertLightness(m_image);
-	}
-#endif
+
 	__super::OnInitialUpdate();
 
 	// set caption to "swap paths" button
@@ -401,12 +398,8 @@ void COpenView::OnPaint()
 	CRect rcImage(0, 0, size.cx * GetSystemMetrics(SM_CXSMICON) / 16, size.cy * GetSystemMetrics(SM_CYSMICON) / 16);
 	m_image.Draw(dc.m_hDC, rcImage, Gdiplus::InterpolationModeBicubic);
 	// And extend it to the Right boundary
-#if defined(USE_DARKMODELIB)
 	if (!DarkMode::isExperimentalActive())
-#endif
-	{
 		dc.PatBlt(rcImage.Width(), 0, rc.Width() - rcImage.Width(), rcImage.Height(), PATCOPY);
-	}
 
 	// Draw the resize gripper in the Lower Right corner.
 	CRect rcGrip = rc;
@@ -455,7 +448,6 @@ LRESULT COpenView::OnThemeChanged()
 
 void COpenView::OnSettingChange(UINT uFlags, LPCTSTR lpszSection)
 {
-#if defined(USE_DARKMODELIB)
 	if (WinMergeDarkMode::IsImmersiveColorSet(lpszSection))
 	{
 		m_image.Destroy();
@@ -465,8 +457,7 @@ void COpenView::OnSettingChange(UINT uFlags, LPCTSTR lpszSection)
 			m_image.Create(1, 1, 24, 0);
 		}
 
-		HWND hSelf = GetSafeHwnd();
-		if (hSelf != nullptr)
+		if (HWND hSelf = GetSafeHwnd())
 		{
 			DarkMode::setWindowCtlColorSubclass(hSelf);
 			DarkMode::setChildCtrlsSubclassAndTheme(hSelf);
@@ -479,7 +470,6 @@ void COpenView::OnSettingChange(UINT uFlags, LPCTSTR lpszSection)
 
 		RedrawWindow(nullptr, nullptr, RDW_INVALIDATE | RDW_UPDATENOW | RDW_ERASE | RDW_ALLCHILDREN);
 	}
-#endif
 	__super::OnSettingChange(uFlags, lpszSection);
 }
 
