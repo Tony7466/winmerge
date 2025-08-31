@@ -313,16 +313,8 @@ BOOL CMergeApp::InitInstance()
 	ApplyCommandLineConfigOptions(cmdInfo);
 	if (cmdInfo.m_sErrorMessages.size() > 0)
 	{
-		if (AttachConsole(ATTACH_PARENT_PROCESS))
-		{
-			DWORD dwWritten;
-			for (auto& msg : cmdInfo.m_sErrorMessages)
-			{
-				String line = _T("WinMerge: ") + msg + _T("\n");
-				WriteConsole(GetStdHandle(STD_OUTPUT_HANDLE), line.c_str(), static_cast<DWORD>(line.length()), &dwWritten, nullptr);
-			}
-			FreeConsole();
-		}
+		for (auto& msg : cmdInfo.m_sErrorMessages)
+			OutputConsole(msg);
 	}
 
 	// Initialize temp folder
@@ -510,6 +502,17 @@ BOOL CMergeApp::InitInstance()
 	return bContinue;
 }
 
+void CMergeApp::OutputConsole(const String& message)
+{
+	if (AttachConsole(ATTACH_PARENT_PROCESS))
+	{
+		DWORD dwWritten;
+		String line = _T("WinMerge: ") + message + _T("\n");
+		WriteConsole(GetStdHandle(STD_OUTPUT_HANDLE), line.c_str(), static_cast<DWORD>(line.length()), &dwWritten, nullptr);
+		FreeConsole();
+	}
+}
+
 CMultiDocTemplate* CMergeApp::GetOpenTemplate()
 {
 	// Open view
@@ -663,7 +666,7 @@ static String makeLogString(const tchar_t* lpszPrompt, int result)
 	return msg;
 }
 
-int CMergeApp::DoMessageBox(const tchar_t* lpszPrompt, UINT nType, UINT nIDPrompt)
+int CMergeApp::DoMessageBox(const tchar_t* lpszPrompt, UINT nType, UINT nIDPrompt, const tchar_t* lpszRegistryKey)
 {
 	// This is a convenient point for breakpointing !!!
 
@@ -685,19 +688,16 @@ int CMergeApp::DoMessageBox(const tchar_t* lpszPrompt, UINT nType, UINT nIDPromp
 
 	if (m_bNonInteractive)
 	{
-		if (AttachConsole(ATTACH_PARENT_PROCESS))
-		{
-			DWORD dwWritten;
-			String line = _T("WinMerge: ") + String(lpszPrompt) + _T("\n");
-			WriteConsole(GetStdHandle(STD_OUTPUT_HANDLE), line.c_str(), static_cast<DWORD>(line.length()), &dwWritten, nullptr);
-			FreeConsole();
-		}
+		String msg = lpszPrompt;
+		if ((nType & 0xf) != 0)
+			msg += _T(": Cancel");
+		OutputConsole(msg);
 		return IDCANCEL;
 	}
 
 	// Create the message box dialog.
 	CMessageBoxDialog dlgMessage(pParentWnd, lpszPrompt, _T(""), nType | MB_RIGHT_ALIGN,
-		nIDPrompt);
+		nIDPrompt, lpszRegistryKey);
 
 	if (m_pMainWnd->IsIconic())
 		m_pMainWnd->ShowWindow(SW_RESTORE);
@@ -710,6 +710,11 @@ int CMergeApp::DoMessageBox(const tchar_t* lpszPrompt, UINT nType, UINT nIDPromp
 	else
 		RootLogger::Info(msg);
 	return result;
+}
+
+int CMergeApp::DoMessageBox(const tchar_t* lpszPrompt, UINT nType, UINT nIDPrompt)
+{
+	return DoMessageBox(lpszPrompt, nType, nIDPrompt, nullptr);
 }
 
 bool CMergeApp::IsReallyIdle() const

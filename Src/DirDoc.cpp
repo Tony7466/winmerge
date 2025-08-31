@@ -1005,13 +1005,17 @@ bool CDirDoc::CompareFilesIfFilesAreLarge(int nFiles, const FileLocation ifilelo
 	CMessageBoxDialog dlg(
 		m_pDirView ? m_pDirView->GetParentFrame() : nullptr,
 		msg.c_str(), _T(""),
-		MB_YESNOCANCEL | MB_ICONQUESTION | MB_DONT_ASK_AGAIN, 0U,
-		_T("CompareLargeFiles"));
-	INT_PTR ans = dlg.DoModal();
-	if (ans == IDCANCEL)
-		return true;
-	else if (ans == IDNO)
-		return false;
+		MB_YESNOCANCEL | MB_ICONQUESTION | MB_DONT_ASK_AGAIN, 0U, _T("CompareLargeFiles"));
+	INT_PTR ans = dlg.GetFormerResult();
+	if (ans != -1 || !theApp.GetNonInteractive())
+	{
+		ans = theApp.DoMessageBox(msg.c_str(),
+			MB_YESNOCANCEL | MB_ICONQUESTION | MB_DONT_ASK_AGAIN, 0U, _T("CompareLargeFiles"));
+		if (ans == IDCANCEL)
+			return true;
+		else if (ans == IDNO)
+			return false;
+	}
 
 	int oldCompareMethod = GetOptionsMgr()->GetInt(OPT_CMP_METHOD);
 	GetOptionsMgr()->SaveOption(OPT_CMP_METHOD, CMP_QUICK_CONTENT); // Use quick content compare for large files
