@@ -1139,6 +1139,9 @@ msgstr "Fecha de modificación y tamaño"
 msgid "Size"
 msgstr "Tamaño"
 
+msgid "Existence"
+msgstr ""
+
 msgid "&Load Project..."
 msgstr "&Cargar proyecto..."
 
@@ -1484,6 +1487,9 @@ msgstr "Menos de 100000"
 msgid "100000 or more"
 msgstr "100000 o más"
 
+msgid "Additional &Properties..."
+msgstr ""
+
 msgid "Add F&older Condition"
 msgstr "Añadir c&ondición de carpeta"
 
@@ -1507,6 +1513,18 @@ msgstr "Igual"
 
 msgid "Not Equal"
 msgstr "No igual"
+
+msgid "Less Than"
+msgstr ""
+
+msgid "Less Than or Equal to"
+msgstr ""
+
+msgid "Greater Than"
+msgstr ""
+
+msgid "Greater Than or Equal to"
+msgstr ""
 
 msgid "Less than 10B"
 msgstr "Menos de 10 B"
@@ -1558,6 +1576,24 @@ msgstr "Objetivo: izquierdo y c&entral"
 
 msgid "Target: Middle and &Right"
 msgstr "Objetivo: central y de&recho"
+
+msgid "Target: &All"
+msgstr ""
+
+msgid "&Clear conditions"
+msgstr ""
+
+msgid "Compare &Size"
+msgstr ""
+
+msgid "Compare &Date"
+msgstr ""
+
+msgid "Compare &Attributes"
+msgstr ""
+
+msgid "Compare C&ontents"
+msgstr ""
 
 msgid "About WinMerge"
 msgstr "Acerca de WinMerge"
@@ -2563,6 +2599,9 @@ msgstr "Lí&mite para cambiar a comparación rápida (MB):"
 
 msgid "Switch to &binary compare when size exceeds (MB):"
 msgstr "Límite para cambiar a comparación &binaria (MB):"
+
+msgid "Additional comparison condi&tions:"
+msgstr ""
 
 msgid "File patterns:"
 msgstr "Patrones de archivo:"
@@ -3810,6 +3849,10 @@ msgid "Image files are different"
 msgstr "Las archivos de imagen son diferentes"
 
 #, c-format
+msgid "Files are different (expr: %1)"
+msgstr ""
+
+#, c-format
 msgid "Group%d"
 msgstr "Grupo %d"
 
@@ -4749,6 +4792,10 @@ msgid "Filter applied"
 msgstr "Filtro aplicado"
 
 #, c-format
+msgid "Compare %1"
+msgstr ""
+
+#, c-format
 msgid "Clipboard at %s"
 msgstr "Portapapeles en %s"
 
@@ -4973,6 +5020,9 @@ msgstr "División por cero en la expresión del filtro"
 
 msgid "Unknown error"
 msgstr "Error desconocido"
+
+msgid "Invalid property name"
+msgstr ""
 
 msgid "Equals"
 msgstr "Iguales"

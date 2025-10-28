@@ -1135,6 +1135,9 @@ msgstr "Dată modificare și mărime"
 msgid "Size"
 msgstr "Mărime"
 
+msgid "Existence"
+msgstr ""
+
 msgid "&Load Project..."
 msgstr "Încarcă proiect..."
 
@@ -1480,6 +1483,9 @@ msgstr ""
 msgid "100000 or more"
 msgstr ""
 
+msgid "Additional &Properties..."
+msgstr ""
+
 msgid "Add F&older Condition"
 msgstr ""
 
@@ -1502,6 +1508,18 @@ msgid "Equal"
 msgstr ""
 
 msgid "Not Equal"
+msgstr ""
+
+msgid "Less Than"
+msgstr ""
+
+msgid "Less Than or Equal to"
+msgstr ""
+
+msgid "Greater Than"
+msgstr ""
+
+msgid "Greater Than or Equal to"
 msgstr ""
 
 msgid "Less than 10B"
@@ -1553,6 +1571,24 @@ msgid "Target: Left and &Middle"
 msgstr ""
 
 msgid "Target: Middle and &Right"
+msgstr ""
+
+msgid "Target: &All"
+msgstr ""
+
+msgid "&Clear conditions"
+msgstr ""
+
+msgid "Compare &Size"
+msgstr ""
+
+msgid "Compare &Date"
+msgstr ""
+
+msgid "Compare &Attributes"
+msgstr ""
+
+msgid "Compare C&ontents"
 msgstr ""
 
 msgid "About WinMerge"
@@ -2572,6 +2608,9 @@ msgstr "Prag pentru trecerea la compararea rapidă (MB):"
 
 msgid "Switch to &binary compare when size exceeds (MB):"
 msgstr "Prag pentru trecerea la compararea binară (MB):"
+
+msgid "Additional comparison condi&tions:"
+msgstr ""
 
 msgid "File patterns:"
 msgstr "Modele de fișiere:"
@@ -3812,6 +3851,10 @@ msgid "Image files are different"
 msgstr "Fișierele imagine sunt diferite"
 
 #, c-format
+msgid "Files are different (expr: %1)"
+msgstr ""
+
+#, c-format
 msgid "Group%d"
 msgstr "Grup%d"
 
@@ -4758,6 +4801,10 @@ msgid "Filter applied"
 msgstr "Filtru aplicat"
 
 #, c-format
+msgid "Compare %1"
+msgstr ""
+
+#, c-format
 msgid "Clipboard at %s"
 msgstr "Clipboard la %s"
 
@@ -4928,6 +4975,9 @@ msgid "Division by zero in filter expression"
 msgstr ""
 
 msgid "Unknown error"
+msgstr ""
+
+msgid "Invalid property name"
 msgstr ""
 
 msgid "Equals"

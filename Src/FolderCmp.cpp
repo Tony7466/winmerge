@@ -17,8 +17,11 @@
 #include "codepage_detect.h"
 #include "BinaryCompare.h"
 #include "TimeSizeCompare.h"
+#include "ExistenceCompare.h"
 #include "TFile.h"
 #include "FileFilterHelper.h"
+#include "PropertySystem.h"
+#include "FilterEngine/FilterExpression.h"
 #include "Logger.h"
 #include "I18n.h"
 #include "DebugNew.h"
@@ -26,6 +29,7 @@
 using CompareEngines::ByteCompare;
 using CompareEngines::BinaryCompare;
 using CompareEngines::TimeSizeCompare;
+using CompareEngines::ExistenceCompare;
 using CompareEngines::ImageCompare;
 
 FolderCmp::FolderCmp(CDiffContext *pCtxt)
@@ -445,6 +449,15 @@ exitPrepAndCompare:
 		if (DIFFCODE::isResultError(code))
 			LogError(di);
 	}
+	else if (nCompMethod == CMP_EXISTENCE)
+	{
+		if (m_pExistenceCompare == nullptr)
+			m_pExistenceCompare.reset(new ExistenceCompare());
+
+		code = m_pExistenceCompare->CompareFiles(nCompMethod, m_pCtxt->GetCompareDirs(), di);
+		if (DIFFCODE::isResultError(code))
+			LogError(di);
+	}
 	else if (nCompMethod == CMP_IMAGE_CONTENT)
 	{
 		if (!m_pImageCompare)
@@ -463,6 +476,24 @@ exitPrepAndCompare:
 	{
 		// Print error since we should have handled by date compare earlier
 		throw "Invalid compare type, DiffFileData can't handle it";
+	}
+
+	if ((code & DIFFCODE::COMPAREFLAGS) == DIFFCODE::SAME && m_pCtxt->m_pAdditionalCompareExpression)
+	{
+		m_pCtxt->m_pAdditionalCompareExpression->errorCode = FilterErrorCode::FILTER_ERROR_NO_ERROR;
+		if (!m_pCtxt->m_pAdditionalCompareExpression->Evaluate(di))
+		{
+			if (m_pCtxt->m_pAdditionalCompareExpression->errorCode != FilterErrorCode::FILTER_ERROR_NO_ERROR)
+			{
+				code &= ~DIFFCODE::COMPAREFLAGS;
+				code |= DIFFCODE::CMPERR;
+			}
+			else
+			{
+				code &= ~(DIFFCODE::COMPAREFLAGS | DIFFCODE::EXPRFLAGS);
+				code |= DIFFCODE::DIFF | DIFFCODE::EXPRDIFF;
+			}
+		}
 	}
 
 	return code;
